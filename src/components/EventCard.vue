@@ -1,17 +1,19 @@
 <template>
-  <!-- <RouterLink class="event-link" :to="{ name: 'event-detail', params: { id: event?.id } }"> -->
-  <article>
-    <div class="card-wrapper">
-      <div class="card-body">
-        <h2>{{ event?.first_name }} {{ event?.last_name }} <span>({{ event?.gender }})</span></h2>
-        <p class="card-email">{{ event?.email }}</p>
-        <!-- <p>@176.3.147.168</p> -->
-        <p>{{ event?.Source }} ---&gt; {{ event?.Destination }}</p>
-        <p>@{{ event?.travelDate }}</p>
+  <RouterLink class="event-link" :to="{ name: 'event-detail', params: { id: event?.id } }">
+    <article>
+      <div class="card-wrapper">
+        <div class="card-body">
+          <h2>
+            {{ event?.first_name }} {{ event?.last_name }} <span>({{ event?.gender }})</span>
+          </h2>
+          <p class="card-email">{{ event?.email }}</p>
+          <!-- <p>@176.3.147.168</p> -->
+          <p>{{ event?.Source }} ---&gt; {{ event?.Destination }}</p>
+          <p>@{{ event?.travelDate }}</p>
+        </div>
       </div>
-    </div>
-  </article>
-  <!-- </RouterLink> -->
+    </article>
+  </RouterLink>
 </template>
 
 <script setup lang="ts">

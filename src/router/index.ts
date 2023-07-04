@@ -4,6 +4,7 @@ import AboutView from '../views/AboutView.vue'
 import EventDetailView from '../views/details/EventDetailView.vue'
 import EventLayoutView from '../views/details/EventLayoutView.vue'
 import EventAirlineView from '../views/details/EventAirlineView.vue'
+import NotFoundView from '../views/NotFoundView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -41,6 +42,17 @@ const router = createRouter({
         }
       ]
     },
+    {
+      path: '/:catchAll(.*)',
+      name: 'not-found',
+      component: NotFoundView
+    },
+    {
+      path: '/404/:resource',
+      name: '404-resource',
+      component: NotFoundView,
+      props: true
+    }
   ]
 })
 

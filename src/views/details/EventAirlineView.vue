@@ -28,7 +28,8 @@ defineProps({
   align-items: center;
 }
 .airline-body {
-  margin-top: 3rem;
+  line-height: 36pt;
+  margin-top: 2rem;
 }
 span {
   font-weight: bold;

@@ -9,4 +9,6 @@ export interface CardItem {
   Destination: string
   travelDate: string
   airlineId: number
+  AirlineName: string
+  address: string
 }

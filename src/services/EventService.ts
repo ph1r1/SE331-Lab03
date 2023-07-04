@@ -17,5 +17,8 @@ export default {
   },
   getEventById(id: number): Promise<AxiosResponse<CardItem>> {
     return apiClient.get<CardItem>('passenger/' + id.toString())
+  },
+  getAirlineById(id: number): Promise<AxiosResponse<CardItem>> {
+    return apiClient.get<CardItem>('airline/' + id.toString())
   }
 }

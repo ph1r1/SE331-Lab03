@@ -1,13 +1,13 @@
 import type { Passenger } from '@/type'
 import { defineStore } from 'pinia'
 
-export const usePassengerStore = defineStore('event', {
+export const usePassengerStore = defineStore('passenger', {
   state: () => ({
-    event: null as Passenger | null
+    passenger: null as Passenger | null
   }),
   actions: {
-    setPassenger(event: Passenger) {
-      this.event = event
+    setPassenger(passenger: Passenger) {
+      this.passenger = passenger
     }
   }
 })

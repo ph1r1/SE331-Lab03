@@ -3,7 +3,7 @@ import { type Passenger } from '@/type'
 import type { PropType } from 'vue'
 
 defineProps({
-  event: {
+  passenger: {
     type: Object as PropType<Passenger>,
     require: true
   }
@@ -11,18 +11,18 @@ defineProps({
 </script>
 
 <template>
-  <div v-if="event">
+  <div v-if="passenger">
     <div class="card-wrapper">
       <div class="card-body">
         <h2>
-          {{ event?.first_name }} {{ event?.last_name }} 
+          {{ passenger?.first_name }} {{ passenger?.last_name }} 
         </h2>
-        <p><span>Email:</span> {{ event?.email }}</p>
-        <p><span>Gender:</span> {{ event?.gender }}</p>
-        <p><span>IP_Address:</span> {{ event?.ip_address }}</p>
-        <p><span>Source:</span> {{ event?.Source }}</p>
-        <p><span>Destination:</span> {{ event?.Destination }}</p>
-        <p><span>Travel Date:</span> {{ event?.travelDate }}</p>
+        <p><span>Email:</span> {{ passenger?.email }}</p>
+        <p><span>Gender:</span> {{ passenger?.gender }}</p>
+        <p><span>IP_Address:</span> {{ passenger?.ip_address }}</p>
+        <p><span>Source:</span> {{ passenger?.Source }}</p>
+        <p><span>Destination:</span> {{ passenger?.Destination }}</p>
+        <p><span>Travel Date:</span> {{ passenger?.travelDate }}</p>
       </div>
     </div>
   </div>

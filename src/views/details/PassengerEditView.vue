@@ -7,7 +7,7 @@ import { storeToRefs } from 'pinia'
 import NProgress from 'nprogress'
 
 const props = defineProps({
-  event: {
+  passenger: {
     type: Object as PropType<Passenger>,
     require: true
   }

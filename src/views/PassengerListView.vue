@@ -5,7 +5,7 @@ import { ref, watchEffect } from 'vue'
 import type { Ref } from 'vue'
 import PassengerService from '@/services/PassengerService'
 
-const events: Ref<Array<Passenger>> = ref([])
+const passengers: Ref<Array<Passenger>> = ref([])
 
 const props = defineProps({
   page: {
@@ -16,14 +16,14 @@ const props = defineProps({
 
 watchEffect(() => {
   PassengerService.getPassengers(10, props.page).then((response) => {
-    events.value = response.data
+    passengers.value = response.data
   })
 })
 </script>
 
 <template>
   <main class="container">
-    <PassengerCard v-for="event in events" :key="event.id" :event="event"></PassengerCard>
+    <PassengerCard v-for="passenger in passengers" :key="passenger.id" :passenger="passenger"></PassengerCard>
   </main>
 </template>
 

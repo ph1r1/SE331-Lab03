@@ -4,6 +4,7 @@ import type { PropType } from 'vue'
 import { useRouter } from 'vue-router'
 import { useMessageStore } from '@/stores/message'
 import { storeToRefs } from 'pinia'
+import NProgress from 'nprogress'
 
 const props = defineProps({
   event: {
@@ -17,9 +18,11 @@ const store = useMessageStore()
 const { message } = storeToRefs(store)
 
 const edit = () => {
+  NProgress.start()
   store.updateMessage('The update is in progress...')
   setTimeout(() => {
     store.resetMessage()
+    NProgress.done()
     router.push({ name: 'home' })
   }, 5000)
 }

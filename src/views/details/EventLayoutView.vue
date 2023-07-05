@@ -36,8 +36,9 @@ EventService.getEventById(Number(props.id))
 <template>
   <div v-if="event">
     <div class="nav">
-      <router-link :to="{ name: 'event-detail', params: { id } }">Detail</router-link>&nbsp;|&nbsp;
-      <router-link :to="{ name: 'event-airline', params: { id } }">Airline</router-link>
+      <router-link :to="{ name: 'event-detail', params: { id } }">Detail</router-link> | 
+      <router-link :to="{ name: 'event-airline', params: { id } }">Airline</router-link> | 
+      <router-link :to="{ name: 'event-edit', params: { id } }">Edit</router-link>
     </div>
 
     <RouterView :event="event" :airline="airline"></RouterView>
@@ -50,5 +51,19 @@ EventService.getEventById(Number(props.id))
   justify-content: center;
   align-items: center;
   margin-top: 3rem;
+}
+.nav a.router-link-exact-active {
+  color: #42b983;
+  font-weight: bold;
+}
+
+.nav a.router-link-exact-active:hover {
+  background-color: transparent;
+}
+
+.nav a {
+  display: inline-block;
+  padding: 0 0.5rem;
+  color: #2c3e50;
 }
 </style>

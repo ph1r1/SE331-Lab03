@@ -5,6 +5,7 @@ import EventDetailView from '../views/details/EventDetailView.vue'
 import EventLayoutView from '../views/details/EventLayoutView.vue'
 import EventAirlineView from '../views/details/EventAirlineView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
+import EventEditView from '../views/details/EventEditView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,12 @@ const router = createRouter({
           path: 'airline',
           name: 'event-airline',
           component: EventAirlineView,
+          props: true
+        },
+        {
+          path: 'edit',
+          name: 'event-edit',
+          component: EventEditView,
           props: true
         }
       ]

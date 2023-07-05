@@ -13,9 +13,9 @@ const id = ref(event?.value?.id)
 <template>
   <div v-if="event">
     <div class="nav">
-      <router-link :to="{ name: 'event-detail', params: { id } }">Detail</router-link> | 
-      <router-link :to="{ name: 'event-airline', params: { id } }">Airline</router-link> | 
-      <router-link :to="{ name: 'event-edit', params: { id } }">Edit</router-link>
+      <router-link :to="{ name: 'passenger-detail', params: { id } }">Detail</router-link> | 
+      <router-link :to="{ name: 'passenger-airline', params: { id } }">Airline</router-link> | 
+      <router-link :to="{ name: 'passenger-edit', params: { id } }">Edit</router-link>
     </div>
 
     <RouterView :event="event" :airline="airline"></RouterView>

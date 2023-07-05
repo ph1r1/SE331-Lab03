@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import PassengerListView from '../views/PassengerListView.vue'
 import AboutView from '../views/AboutView.vue'
-import EventDetailView from '../views/details/EventDetailView.vue'
-import EventLayoutView from '../views/details/EventLayoutView.vue'
-import EventAirlineView from '../views/details/EventAirlineView.vue'
+import PassengerDetailView from '../views/details/PassengerDetailView.vue'
+import PassengerLayoutView from '../views/details/PassengerLayoutView.vue'
+import PassengerAirlineView from '../views/details/PassengerAirlineView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
-import EventEditView from '../views/details/EventEditView.vue'
+import PassengerEditView from '../views/details/PassengerEditView.vue'
 import NProgress from 'nprogress'
-import EventService from '@/services/EventService'
+import PassengerService from '@/services/PassengerService'
 import { usePassengerStore, useAirlineStore } from '@/stores/passenger'
 
 const router = createRouter({
@@ -15,8 +15,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView,
+      name: 'passenger-list',
+      component: PassengerListView,
       props: (route) => ({
         page: parseInt((route.query?.page as string) || '1')
       })
@@ -28,17 +28,17 @@ const router = createRouter({
     },
     {
       path: '/passenger/:id',
-      name: 'event-layout',
-      component: EventLayoutView,
+      name: 'passenger-layout',
+      component: PassengerLayoutView,
       props: true,
       beforeEnter: (to) => {
         const id: number = parseInt(to.params.id as string)
         const passengerStore = usePassengerStore()
         const airlineStore = useAirlineStore()
-        EventService.getEventById(id)
+        PassengerService.getPassengerById(id)
           .then((response) => {
             passengerStore.setPassenger(response.data)
-            EventService.getAirlineById(Number(response.data.airlineId))
+            PassengerService.getAirlineById(Number(response.data.airlineId))
               .then((response) => {
                 airlineStore.setAirline(response.data)
               })
@@ -59,20 +59,20 @@ const router = createRouter({
       children: [
         {
           path: '',
-          name: 'event-detail',
-          component: EventDetailView,
+          name: 'passenger-detail',
+          component: PassengerDetailView,
           props: true
         },
         {
           path: 'airline',
-          name: 'event-airline',
-          component: EventAirlineView,
+          name: 'passenger-airline',
+          component: PassengerAirlineView,
           props: true
         },
         {
           path: 'edit',
-          name: 'event-edit',
-          component: EventEditView,
+          name: 'passenger-edit',
+          component: PassengerEditView,
           props: true
         }
       ]

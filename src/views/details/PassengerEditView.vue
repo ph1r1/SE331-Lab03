@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type CardItem } from '@/type'
+import { type Passenger } from '@/type'
 import type { PropType } from 'vue'
 import { useRouter } from 'vue-router'
 import { useMessageStore } from '@/stores/message'
@@ -8,7 +8,7 @@ import NProgress from 'nprogress'
 
 const props = defineProps({
   event: {
-    type: Object as PropType<CardItem>,
+    type: Object as PropType<Passenger>,
     require: true
   }
 })
@@ -23,7 +23,7 @@ const edit = () => {
   setTimeout(() => {
     store.resetMessage()
     NProgress.done()
-    router.push({ name: 'home' })
+    router.push({ name: 'passenger-list' })
   }, 5000)
 }
 </script>

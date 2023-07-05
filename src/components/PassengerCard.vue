@@ -1,5 +1,5 @@
 <template>
-  <RouterLink class="event-link" :to="{ name: 'event-detail', params: { id: event?.id } }">
+  <RouterLink class="event-link" :to="{ name: 'passenger-detail', params: { id: event?.id } }">
     <article>
       <div class="card-wrapper">
         <div class="card-body">
@@ -17,12 +17,12 @@
 </template>
 
 <script setup lang="ts">
-import type { CardItem } from '@/type'
+import type { Passenger } from '@/type'
 import type { PropType } from 'vue'
 
 const props = defineProps({
   event: {
-    type: Object as PropType<CardItem>,
+    type: Object as PropType<Passenger>,
     require: true
   }
 })

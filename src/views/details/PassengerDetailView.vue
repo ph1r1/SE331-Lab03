@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { type CardItem } from '@/type'
+import { type Passenger } from '@/type'
 import type { PropType } from 'vue'
 
 defineProps({
   event: {
-    type: Object as PropType<CardItem>,
+    type: Object as PropType<Passenger>,
     require: true
   }
 })

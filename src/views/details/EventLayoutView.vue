@@ -1,36 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { type CardItem } from '@/type'
-import EventService from '@/services/EventService'
-import { useRouter } from 'vue-router'
+import { usePassengerStore, useAirlineStore } from '@/stores/passenger';
+import { storeToRefs } from 'pinia';
 
-const event = ref<CardItem | null>(null)
-const airline = ref<CardItem | null>(null)
-const props = defineProps({
-  id: String
-})
-const router = useRouter()
-
-EventService.getEventById(Number(props.id))
-  .then((response) => {
-    event.value = response.data
-    EventService.getAirlineById(Number(response.data.airlineId))
-      .then((response) => {
-        airline.value = response.data
-      })
-      .catch((error) => {
-        console.log(error)
-        if (error.response && error.response.status === 404) {
-          router.push({ name: '404-resource', params: { resource: 'AirlineId' } })
-        }
-      })
-  })
-  .catch((error) => {
-    console.log(error)
-    if (error.response && error.response.status === 404) {
-      router.push({ name: '404-resource', params: { resource: 'PassengerId' } })
-    }
-  })
+const storePassenger = usePassengerStore()
+const event = storeToRefs(storePassenger).event
+const storeAirline = useAirlineStore()
+const airline = storeToRefs(storeAirline).airline
+const id = ref(event?.value?.id)
 </script>
 
 <template>

@@ -52,7 +52,7 @@ const router = createRouter({
           .catch((error) => {
             console.log(error)
             if (error.response && error.response.status === 404) {
-              return { name: '404-resource', params: { resource: 'PassengerId' } }
+              return router.push({ name: '404-resource', params: { resource: 'PassengerId' } })
             }
           })
       },
